@@ -3,7 +3,7 @@ const outputName = document.querySelector('#name-output');
 
 
 function onInputBlur() {
-    if (input.value === '') {
+    if (input.value.trim() === '') {
         outputName.textContent='незнакомец'
     }
     else {

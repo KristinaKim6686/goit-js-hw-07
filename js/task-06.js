@@ -1,15 +1,13 @@
 const inputRef = document.querySelector('#validation-input');
 const inputLength = Number(inputRef.dataset.length);
 
-inputRef.addEventListener('change', input => {
-    const text = input.target.value;
+inputRef.addEventListener('change',handleChangeInput)
 
-    if (text.length === inputLength) {
-        inputRef.classList.add('valid');
-    }
-    else {
-        inputRef.classList.add('invalid')
-    }
+function toggleClass(ref, add, rem) {
+    ref.classList.add(add)
+    ref.classList.remove(rem)
 }
-
-)
+function handleChangeInput({ target: { value } }) {
+    value.length === inputLength ? toggleClass(inputRef, 'valid', 'invalid') :
+    toggleClass(inputRef, 'invalid', 'valid');
+}
